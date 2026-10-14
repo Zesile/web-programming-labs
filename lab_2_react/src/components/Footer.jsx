@@ -1,4 +1,5 @@
 function Footer({ name }) {
+  const CURRENT_YEAR = new Date().getFullYear(); 
   return (
     <footer id="contacts">
       <h2>Контакти</h2>
@@ -17,7 +18,7 @@ function Footer({ name }) {
           </a>
         </p>
       </address>
-      <p><small>&copy; {new Date().getFullYear()} {name}</small></p>
+      <p><small>&copy; {CURRENT_YEAR} {name}</small></p>
     </footer>
   );
 }

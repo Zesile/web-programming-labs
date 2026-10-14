@@ -1,31 +1,16 @@
-const jobs = [
-  {
-    position: 'Фріланс-проєкти',
-    company: 'Самозайнятість',
-    period: 'січень 2026 – дотепер',
-    duties: [
-      'Створення односторінкових сайтів для малого бізнесу.',
-      'Підтримка та оновлення контенту.',
-      'Робота з Git та командою через GitHub.'
-    ],
-  },
-];
-
 function Experience() {
   return (
     <section id="experience">
       <h2>Досвід роботи</h2>
-        {jobs.map((job, index) => (
-          <div key={index}>
-            <h3>{job.position}</h3>
-            <p><strong>{job.company}</strong> — {job.period}</p>
-            <ul>
-              {job.duties.map((duty, i) => (
-                <li key={i}>{duty}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
+      <div>
+        <h3>Фріланс-проєкти</h3>
+        <p><strong>Самозайнятість</strong> — січень 2026 – дотепер</p>
+        <ul>
+          <li>Створення односторінкових сайтів для малого бізнесу.</li>
+          <li>Підтримка та оновлення контенту.</li>
+          <li>Робота з Git та командою через GitHub.</li>
+        </ul>
+      </div>
     </section>
   );
 }
