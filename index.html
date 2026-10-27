@@ -5,11 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Резюме" />
     <title>CV — Тітарчук Дмитро Васильович</title>
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <style>
+      ::selection {
+        background: #c2374f;
+        color: #ffffff;
+      }
+
+      @media print {
+        nav {
+          display: none;
+        }
+      }
+    </style>
   </head>
   <body>
     <header>
       <h1>Тітарчук Дмитро Васильович</h1>
-      <p>Junior веброзробник</p>
+      <p class="role" style="letter-spacing: 0.04em">Junior веброзробник</p>
       <nav>
         <ul>
           <li><a href="#about">Про мене</a></li>
@@ -36,7 +51,7 @@
 
         <article>
           <h3>Фріланс-проєкти</h3>
-          <p><em>Самозайнятість</em> — січень 2026 – дотепер</p>
+          <p class="job-meta"><em>Самозайнятість</em> — <time class="period" datetime="2026-01">січень 2026</time> – дотепер</p>
           <ul>
             <li>Створення односторінкових сайтів для малого бізнесу.</li>
             <li>Підтримка та оновлення контенту.</li>
@@ -55,7 +70,7 @@
 
       <section id="skills">
         <h2>Навички</h2>
-        <ul>
+        <ul class="skills-list">
           <li>HTML5</li>
           <li>Git та GitHub</li>
           <li>Python(базовий рівень), C#(базовий рівень)</li>

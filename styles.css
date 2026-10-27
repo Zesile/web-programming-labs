@@ -1,0 +1,249 @@
+/* ---------- 1. Змінні ---------- */
+:root {
+  --paper: #eef1ef;
+  --ink: #16231f;
+  --forest: #2f6f5e;
+  --accent: #c2374f;
+  --line: #c9d3cf;
+  --muted: #cfe0da;
+  --gutter: clamp(1.5rem, 5vw, 4rem);
+  --content-width: 60rem;
+
+  --font-display: Georgia, "Times New Roman", serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ---------- 2. Скидання та блокова модель ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink);
+  background-color: var(--paper);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  line-height: 1.2;
+}
+
+/* ---------- 3. Макет сторінки: CSS Grid ---------- */
+body {
+  display: grid;
+  grid-template-columns: 18rem minmax(0, 1fr);
+  grid-template-areas:
+    "header main"
+    "header footer";
+  grid-template-rows: 1fr auto;
+  min-height: 100vh;
+}
+
+/* ---------- 4. Бічна панель ---------- */
+header {
+  grid-area: header;
+  align-self: start;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding: 2rem 1.5rem;
+  color: #ffffff;
+  background-color: var(--ink);
+  border-right: 4px solid var(--accent);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.role {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+}
+
+nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav a {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  color: var(--muted);
+  text-decoration: none;
+  border-left: 3px solid transparent;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+nav a:hover,
+nav a:focus-visible {
+  color: #ffffff;
+  background-color: rgb(255 255 255 / 0.08);
+  border-left-color: var(--accent);
+}
+
+a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------- 5. Основний вміст ---------- */
+main {
+  grid-area: main;
+  max-width: var(--content-width);
+  padding: 3rem var(--gutter) 1rem;
+}
+
+section {
+  margin: 0 0 3rem;
+}
+
+h2 {
+  margin: 0 0 1.25rem;
+  padding-bottom: 0.5rem;
+  font-size: 1.6rem;
+  border-bottom: 2px solid var(--line);
+}
+
+#about p {
+  max-width: 65ch;
+  font-size: 1.15rem;
+}
+
+article {
+  margin: 0 0 1.5rem;
+  padding: 0 0 0 1.25rem;
+  border-left: 4px solid var(--forest);
+  transition: border-color 0.15s;
+}
+
+article:last-child {
+  margin-bottom: 0;
+}
+
+article:hover {
+  border-left-color: var(--accent);
+}
+
+article h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.2rem;
+}
+
+.job-meta {
+  margin: 0 0 0.5rem;
+  color: var(--forest);
+}
+
+.period {
+  white-space: nowrap;
+}
+
+article ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.skills-list li {
+  padding: 0.35rem 0.9rem;
+  border: 1px solid var(--forest);
+  border-radius: 999px;
+}
+
+.skills-list li:hover {
+  color: #ffffff;
+  background-color: var(--forest);
+}
+
+/* ---------- 6. Посилання: селектори атрибутів ---------- */
+main a,
+footer a {
+  color: var(--forest);
+}
+
+a[href^="mailto:"] {
+  font-weight: 600;
+}
+
+a[target="_blank"] {
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+}
+
+a[href^="https://www.linkedin"] {
+  color: var(--accent);
+}
+
+/* ---------- 7. Футер ---------- */
+footer {
+  grid-area: footer;
+  max-width: calc(var(--content-width) - 2 * var(--gutter));
+  margin: 0 var(--gutter);
+  padding: 1.5rem 0 2rem;
+  border-top: 2px solid var(--line);
+}
+
+footer h2 {
+  font-size: 1.25rem;
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+address {
+  font-style: normal;
+}
+
+address p {
+  margin: 0.25rem 0;
+}
+
+/* ---------- 8. Адаптивність ---------- */
+@media (max-width: 48rem) {
+  body {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "main"
+      "footer";
+    grid-template-rows: auto;
+  }
+
+  header {
+    position: static;
+    height: auto;
+    border-right: 0;
+    border-bottom: 4px solid var(--accent);
+  }
+
+  nav ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+
+  main {
+    padding-top: 2rem;
+  }
+}
