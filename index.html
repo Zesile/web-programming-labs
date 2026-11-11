@@ -32,8 +32,10 @@
           <li><a href="#education">Освіта</a></li>
           <li><a href="#skills">Навички</a></li>
           <li><a href="#contacts">Контакти</a></li>
+          <li><a href="#reviews">Відгуки</a></li>
         </ul>
       </nav>
+      <button type="button" id="theme-toggle" class="theme-toggle" aria-pressed="false">Темна тема</button>
     </header>
 
     <main>
@@ -77,6 +79,13 @@
           <li>Англійська — C1</li>
         </ul>
       </section>
+
+      <section id="reviews">
+        <h2>Відгуки</h2>
+        <div id="reviews-list">
+          <p>Завантаження відгуків…</p>
+        </div>
+      </section>
     </main>
 
     <footer id="contacts">
@@ -86,7 +95,37 @@
         <p>GitHub: <a href="https://github.com/Zesile" target="_blank" rel="noopener noreferrer">github.com/Zesile</a></p>
         <p>LinkedIn: <a href="https://www.linkedin.com/in/тітарчук-дмитро/" target="_blank" rel="noopener noreferrer">linkedin.com/in/Тітарчук-Дмитро</a></p>
       </address>
+      <div id="system-info">
+        <h3>Системна інформація</h3>
+      </div>
       <p><small>&copy; 2026 Тітарчук Дмитро Васильович</small></p>
     </footer>
+    
+    <div id="contact-modal" class="modal" hidden>
+      <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="contact-title">
+        <h2 id="contact-title">Зворотний зв’язок</h2>
+        <form action="https://formspree.io/f/xaeerkjk" method="POST">
+          <label for="f-name">Ім’я</label>
+          <input id="f-name" name="name" type="text" required autocomplete="name" />
+
+          <label for="f-email">Email</label>
+          <input id="f-email" name="email" type="email" required autocomplete="email" />
+
+          <label for="f-phone">Номер телефону</label>
+          <input id="f-phone" name="phone" type="tel" autocomplete="tel" />
+
+          <label for="f-message">Повідомлення</label>
+          <textarea id="f-message" name="message" rows="4" required></textarea>
+
+          <div class="modal-actions">
+            <button type="submit">Надіслати</button>
+            <button type="button" id="contact-close">Закрити</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+
   </body>
 </html>
